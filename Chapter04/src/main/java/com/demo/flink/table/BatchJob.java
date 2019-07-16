@@ -13,7 +13,7 @@ public class BatchJob {
 		BatchTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(env);
 
 		DataSet<Record> csvInput = env
-				.readCsvFile("D://NOTBACKEDUP//dataflow//flink-table//src//main//resources//data//olympic-athletes.csv")
+				.readCsvFile("~/IdeaProjects/Mastering-Apache-Flink/Chapter04/src/main/resources/data/olympic-athletes.csv")
 				.pojoType(Record.class, "playerName", "country", "year", "game", "gold", "silver", "bronze", "total");
 		// register the DataSet athletes as table "athletes" with fields derived
 		// from the dataset

@@ -1,7 +1,6 @@
 package com.demo.flink.gelly;
 
 import org.apache.flink.api.java.DataSet;
-
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.tuple.Tuple3;
@@ -22,10 +21,10 @@ public class BatchJob {
 
 		// Create graph by reading from CSV files
 		DataSet<Tuple2<String, Double>> airportVertices = env
-				.readCsvFile("D://work//Mastering Flink//Chapter 7//data//nodes.csv").types(String.class, Double.class);
+				.readCsvFile("/Users/sbelinchon/IdeaProjects/Mastering-Apache-Flink/Chapter07/src/main/resources/data/nodes.csv").types(String.class, Double.class);
 
 		DataSet<Tuple3<String, String, Double>> airportEdges = env
-				.readCsvFile("D://work//Mastering Flink//Chapter 7//data//edges.csv")
+				.readCsvFile("/Users/sbelinchon/IdeaProjects/Mastering-Apache-Flink/Chapter07/src/main/resources/data/edges.csv")
 				.types(String.class, String.class, Double.class);
 
 		Graph<String, Double, Double> graph = Graph.fromTupleDataSet(airportVertices, airportEdges, env);

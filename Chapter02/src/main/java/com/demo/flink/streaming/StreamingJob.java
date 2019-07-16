@@ -1,8 +1,5 @@
 package com.demo.flink.streaming;
 
-import java.util.Properties;
-
-
 import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.TimeCharacteristic;
@@ -15,6 +12,8 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer09;
 import org.apache.flink.streaming.util.serialization.SimpleStringSchema;
 import org.apache.flink.util.Collector;
 
+import java.util.Properties;
+
 public class StreamingJob {
 
 	public static void main(String[] args) throws Exception {
@@ -24,7 +23,7 @@ public class StreamingJob {
 		env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
 		Properties properties = new Properties();
-		properties.setProperty("bootstrap.servers", "localhost:9092");
+		properties.setProperty("bootstrap.servers", "192.168.99.100:9092");
 
 		properties.setProperty("zookeeper.connect", "localhost:2181");
 		properties.setProperty("group.id", "test");
